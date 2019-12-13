@@ -1,0 +1,79 @@
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+    .column,
+    input[type=submit], #clear {
+        width: 100%;
+        margin-top: 0
+    }
+}
+
+nav.navbar-custom a {
+    color: white;
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+}
+
+#modBtn:hover {
+    background: #464646;
+}
+
+nav.navbar-custom ul.navbar-nav a:focus {
+    background: grey;
+}
+
+input[type=submit], #clear {
+    background: grey;
+}
+
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 600px;
+    padding: 15px;
+}
+
+.login-content {
+    background: rgba(248, 158, 48, 1);
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.btn, #clear {
+
+    width: 100%;
+    margin-top: 17.5px;
+    background-color: grey;
+    color: white;
+    font-size: 14px;
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+}
+
+.btn-primary, .btn-block, .btn-lg, .btn-link, #clear {
+
+    background-color: grey;
+    color: white;
+    font-size: 16px;
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+
+}

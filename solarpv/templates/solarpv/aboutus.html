@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Defeat Poverty in Africa - About Us</title>
+    <link rel="icon" type="image/png" href="{% static 'solarpv/images/profile.png' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="{% static 'solarpv/css/main.css' %}" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'aboutus' %}">About Us</a></li>
+          <li><a href="{% url 'portal' %}" target="_blank">Forms Portal</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a>
+          </li>
+          <li><a href="" id="modBtn" data-toggle="modal" data-target="#myModal"><span
+                class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form class="login-content animate">
+            <div class="modal-body">
+              <form role="form" name="form1">
+                <div class="form-group">
+                  <img src="{% static 'solarpv/images/cover.png' %}" class="img-responsive"><br>
+                  <label for="exampleInputEmail1">Username:</label><br>
+                  <input oninvalid="alert('Hey, you missed something on modal!')" onkeyup="checkForm()" id="uname"
+                    required type="text" name='text1' class="form-control" placeholder="Enter Username" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password:</label><br>
+                  <input oninvalid="alert('Hey, you missed something on modal!')" onkeyup="checkForm()" id="pword"
+                    required type="password" class="form-control" placeholder="Enter Password" />
+                </div>
+                <input type="submit" onclick="myFunction()" class="btn btn-block" id="myButton" name="submit"
+                  value="Submit" disabled="disabled" />
+              </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script>$("#myModal").draggable({ handle: ".modal-body" });</script>
+        <script>
+            function myFunction() {
+                alert("You are now logged in");
+            }
+        </script>
+        <script>
+            function checkForm() {
+                var elements = document.forms[0].elements;
+
+                var cansubmit = true;
+                for (var i = 0; i < elements.length; i++) {
+                    if (elements[i].value.length == 0 && elements[i].type != "submit") {
+                        cansubmit = false;
+                    }
+                }
+                document.getElementById("myButton").disabled = !cansubmit;
+            };      
+        </script>
+
+
+
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <p> Defeat Poverty in Africa, One Donation at a Time.
+                <iframe src="https://www.youtube.com/embed/M4YE2OHgBA4" width="300" height="200" align="center">
+                </iframe>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Locations</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget felis tincidunt, volutpat dolor
+                    nec, posuere odio. Fusce ac nibh sit amet diam eleifend suscipit. Aliquam sagittis vel nisi suscipit
+                    lacinia. Curabitur pharetra suscipit eros, non tincidunt purus fringilla quis. Nulla facilisi.
+                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas et vulputate justo, in
+                    venenatis odio. Integer tellus libero, iaculis a massa sed, volutpat aliquam dolor. Mauris venenatis
+                    diam id libero ultricies convallis. Nullam vel rhoncus nulla. Donec in fermentum odio, id molestie
+                    turpis. In volutpat turpis vitae est dictum lobortis. </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>About Us</h3>
+                <p> Aliquam gravida tristique nunc, id interdum arcu bibendum quis. Nulla pharetra aliquam nisl, tempor
+                    ultrices orci mollis sit amet. Morbi posuere ex at turpis suscipit, ultricies gravida nisi aliquet.
+                    Integer faucibus risus dolor, id luctus odio lobortis vel. Morbi mollis fermentum nibh, id vulputate
+                    odio dictum nec. Ut in lacus quis nulla vestibulum aliquam. Cras semper pulvinar est eget gravida.
+                    Duis finibus ante id turpis aliquam, nec posuere magna venenatis. Fusce nec dolor vehicula,
+                    tristique libero a, interdum velit. In venenatis gravida turpis, non rutrum neque pharetra ut.
+                    Curabitur mattis nulla ut sem rutrum, sollicitudin luctus dolor imperdiet. </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Organizational Hierachy</h3>
+                <p>Phasellus nunc urna, sollicitudin ut nunc vel, consequat facilisis diam. Proin at elit non diam
+                    placerat gravida. Aliquam odio sapien, suscipit vel malesuada eget, dignissim ac augue. Vestibulum
+                    molestie fringilla ante eget gravida. Nullam at metus risus. Ut quis vulputate ante. In porta
+                    viverra sagittis.
+                </p>
+            </div>
+        </div>
+
+
+        <script>
+            function showPosition() {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                });
+            }
+        </script>
+
+        <body onload="showPosition();">
+
+            <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/cb7744ae/cloudflare-static/rocket-loader.min.js"
+                data-cf-settings="b65f6169cdf7012414c20eaa-|49" defer=""
+                type="8b6c24e229a9ee2668b09a86-text/javascript"></script>
+    </div>
+
+
+    <div class="text-center">
+        <h1>
+            "Saving One Life At A Time!"
+        </h1>
+    </div>
+</body>
+
+</html>

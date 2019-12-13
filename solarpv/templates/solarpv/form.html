@@ -1,0 +1,152 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Defeat Poverty in Africa - Home</title>
+    <link rel="icon" type="image/png" href="{% static 'solarpv/images/profile.png' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link href="{% static 'solarpv/css/main.css' %}" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                <li><a href="{% url 'portal' %}" target="_blank">Forms Portal</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span>
+                    Register</a>
+                </li>
+                <li><a href="" id="modBtn" data-toggle="modal" data-target="#myModal"><span
+                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form class="login-content animate">
+                    <div class="modal-body">
+                        <form role="form" name="form1">
+                            <div class="form-group">
+                                <img src="{% static 'solarpv/images/cover.png' %}" class="img-responsive" alt=""><br>
+                                <label for="exampleInputEmail1">Username:</label><br>
+                                <input oninvalid="alert('Hey, you missed something on modal!')" onkeyup="checkForm()"
+                                       id="uname"
+                                       required type="text" name='text1' class="form-control"
+                                       placeholder="Enter Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password:</label><br>
+                                <input oninvalid="alert('Hey, you missed something on modal!')" onkeyup="checkForm()"
+                                       id="pword"
+                                       required type="password" class="form-control" placeholder="Enter Password"/>
+                            </div>
+                            <input type="submit" onclick="myFunction()" class="btn btn-block" id="myButton"
+                                   name="submit"
+                                   value="Submit" disabled="disabled"/>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>$("#myModal").draggable({handle: ".modal-body"});</script>
+    <script>
+        function myFunction() {
+            alert("You are now logged in");
+        }
+    </script>
+    <script>
+        function checkForm() {
+            var elements = document.forms[0].elements;
+
+            var cansubmit = true;
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].value.length == 0 && elements[i].type != "submit") {
+                    cansubmit = false;
+                }
+            }
+            document.getElementById("myButton").disabled = !cansubmit;
+        };
+    </script>
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed btn-block btn-lg" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Select Form Here:
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                             <a href="{% url 'client' %}" class="btn" role="button" aria-pressed="true">Client Form</a>
+                             <a href="{% url 'location' %}" class="btn" role="button" aria-pressed="true">Location Form</a>
+                             <a href="{% url 'product' %}" class="btn" role="button" aria-pressed="true">Product Form</a>
+                             <a href="{% url 'teststandard' %}" class="btn" role="button" aria-pressed="true">Test Standard Form</a>
+                             <a href="{% url 'certificate' %}" class="btn" role="button" aria-pressed="true">Certificate Form</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+
+
+                        <div class="card-body">
+                             <form action="/action_page.php">
+                                {% csrf_token %}
+                                {{ form }}
+                            </form>
+                        </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h1>
+            "Saving One Life At A Time!"
+        </h1>
+        <img src="{% static 'solarpv/images/boy2.jpg' %}"
+             class="img-rounded" width="300" height="236" alt="">
+        <img src="{% static 'solarpv/images/stats.jpg' %}" class="img-rounded"
+             width="300" height="236" alt="">
+        <img src="{% static 'solarpv/images/boy.jpg' %}"
+             class="img-rounded" width="300" height="236" alt="">
+    </div>
+    <script>
+        function showPosition() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+            });
+        }
+    </script>
+
+    <body onload="showPosition();">
+    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/cb7744ae/cloudflare-static/rocket-loader.min.js"
+            data-cf-settings="b65f6169cdf7012414c20eaa-|49" defer=""
+            type="8b6c24e229a9ee2668b09a86-text/javascript"></script>
+</div>
+</body>
+
+</html>
